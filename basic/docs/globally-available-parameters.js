@@ -22,7 +22,7 @@ module.exports.log = log;
     exports.log = log;
 
     // wrong
-    exports = log; // check [here](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/parameter-reference.js)
+    exports = log; // https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/parameter-reference.js
 
     // correct
     module.exports = log;
