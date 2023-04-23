@@ -8,3 +8,5 @@ Node js Tutorial
   - [parameter-reference](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/parameter-reference.js)
   - [path](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/path.js)
   - [os](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/os.js)
+  - [fs](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/fs.js)
+  - [events](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/events.js)
