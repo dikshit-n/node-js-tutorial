@@ -11,7 +11,7 @@ module.exports.log = log;
 // otherFile.js
 const { log } = require("./window-vs-global");
 
-// exporting an variable
+// exporting a variable
 var url = "https://dikshit.live";
 module.exports.url = url;
 
