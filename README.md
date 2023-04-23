@@ -10,3 +10,4 @@ Node js Tutorial
   - [os](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/os.js)
   - [fs](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/fs.js)
   - [events](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/events.js)
+  - [http module](https://github.com/dikshit-n/node-js-tutorial/blob/master/basic/docs/http.js)
