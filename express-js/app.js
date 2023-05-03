@@ -14,32 +14,23 @@ const courses = [
 
 // define a get route
 app.get('/', (req, res) => {
-    res.send('Hello world');
+    return res.send('Hello world');
 });
 
 app.get('/api/courses', (req, res) => {
-    res.send(courses);
+    return res.send(courses);
 });
 
 app.get('/api/courses/:id', (req, res) => {
     const course = courses.find(_ => _.id === +req.params.id);
-    if(!course) res.status(404).send('Course Not Found !');
-    res.send(course);
+    if(!course) return res.status(404).send('Course Not Found !');
+    return res.send(course);
 });
 
 app.post('/api/courses', async(req, res) => {
 
-    const schema = Joi.object().keys({
-        name: Joi.string().min(3).required()
-    })
-    const error = {};
-
-    try {
-        await Joi.attempt(req.body, schema);
-    } catch(err) {
-        error.message = err.details[0].message;
-    }
-    // console.log(result.details);
+    // validate whether it has the right details
+    const error = await validateCourse(req.body);
 
     // add some validation
     // if(!req.body.name || req.body.name.length < 3) {
@@ -47,18 +38,67 @@ app.post('/api/courses', async(req, res) => {
     //     return;
     // }
 
-    if(error.message) {
-        res.status(400).send(error.message);
-        return;
-    }
+    // throw error if invalid
+    if(error) return res.status(400).send(error);
 
     const course = {
         id: courses.length + 1,
         name: req.body.name // to use this, you should enable the json parsing in this app
     }
     courses.push(course);
-    res.send(course);
+    return res.send(course);
 })
+
+app.put('/api/courses/:id', async (req, res) => {
+    // Lookup for the course
+    const course = courses.find((_) => _.id === +req.params.id);
+    // 404 - If course not found
+    if(!course) return res.status(404).send('Course not found');
+    // if found
+    else {
+        // validate whether it has the right details
+        const error = await validateCourse(req.body);
+        // throw error if invalid
+        if(error) return res.status(400).send(error);
+    }
+    // return the updated course
+    const updateIndex = courses.findIndex((_) => _.id === +req.params.id);
+    courses[updateIndex] = {
+        ...courses[updateIndex],
+        name: req.body.name
+    }
+
+    return res.status(200).send(courses[updateIndex]);
+});
+
+app.delete('/api/courses/:id', (req, res) => {
+    const course = courses.find((_) => _.id === +req.params.id);
+    if(!course) return res.status(404).send('Course not found');
+    else {
+        const index = courses.indexOf(course);
+        courses.splice(index, 1);
+        return res.send(course);
+    } 
+})
+
+// helpers
+async function validateCourse(courseDetails) {
+    const schema = Joi.object().keys({
+        name: Joi.string().min(3).required(),
+    });
+
+    const error = {};
+    // attempt validation
+    try {
+        await Joi.attempt(courseDetails, schema);
+    } catch(err) {
+        // console.log(err.details);
+        error.message = err.details[0].message;
+    };
+
+    // return the error
+    return error.message;
+}
 
 // this env variable is available in the hosting enviornment of node js
 // set this PORT value in your machine by running the following command in tour terminal
