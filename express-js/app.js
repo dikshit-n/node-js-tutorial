@@ -1,10 +1,16 @@
 const Joi = require('joi');
 const express = require('express');
+const { logger, auth } = require('./middleware');
 const app = express();
 
 // to use json parsing in this app enable it by implementing the following line
 // this following middleware will be used in the request processing pipeline
 app.use(express.json());
+
+// logger middleware
+app.use(logger);
+// auth middleware
+app.use(auth);
 
 const courses = [
     { id: 1, name: 'Test 1' },
