@@ -1,11 +1,31 @@
+const config = require('config');
 const Joi = require('joi');
 const express = require('express');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const { logger, auth } = require('./middleware');
 const app = express();
+
+console.log(`Application Name: ${config.get('name')}`);
+console.log(`mail password: ${config.get('mail.password')}`); // config goes through all the files inside config folder to find this value
 
 // to use json parsing in this app enable it by implementing the following line
 // this following middleware will be used in the request processing pipeline
 app.use(express.json());
+
+// help to process the body of a request sent using x-www-form-urlencoded format
+// parses the body from key1=value1&key2=value2 to { key1: value1, key2: value2 }
+app.use(express.urlencoded({ extended: true }));
+
+// help to serve file content as response
+app.use(express.static('docs')); // serves content inside docs folder -> check http://localhost:3000/middleware.md
+
+// third party middleware
+app.use(helmet());
+
+// morgan middleware
+// helps to log https requests
+app.use(morgan('tiny'));
 
 // logger middleware
 app.use(logger);

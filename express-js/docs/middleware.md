@@ -4,6 +4,8 @@
 
 ```
 const express = require('express');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const app = express();
 
 // middleware to process the body of the request
@@ -22,6 +24,19 @@ app.use((req, res) => {
     next();
 })
 
+// help to process the body of a request sent using x-www-form-urlencoded format
+// parses the body from key1=value1&key2=value2 to { key1: value1, key2: value2 }
+app.use(express.urlencoded({ extended: true }));
+
+// help to serve file content as response
+app.use(express.static('docs')); // serves content inside docs folder -> check http://localhost:3000/middleware.md
+
+// third party middleware
+app.use(helmet());
+
+// morgan middleware
+// helps to log https requests
+app.use(morgan('tiny'));
 
 app.get('/', 
 // this function is a middleware to process the request

@@ -1,0 +1,4 @@
+// Overwrites default
+{
+    "name": "Express app - production"
+}

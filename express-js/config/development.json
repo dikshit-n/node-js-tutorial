@@ -1,0 +1,7 @@
+// Overwrites default
+{
+    "name": "My Express App - development",
+    "mail": {
+        "host": "mail-host"
+    }
+}
