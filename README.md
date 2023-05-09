@@ -15,3 +15,4 @@ Node js Tutorial
  - [Node Package Manager](https://github.com/dikshit-n/node-js-tutorial/tree/master/npm)
  - [express-js](https://github.com/dikshit-n/node-js-tutorial/tree/master/express-js)
   - [middleware](https://github.com/dikshit-n/node-js-tutorial/blob/master/express-js/docs/middleware.md)
+  - [Templating Engines](https://github.com/dikshit-n/node-js-tutorial/blob/master/express-js/docs/templating-engines.js)
