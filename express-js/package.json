@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "npm run set:env && nodemon app.js",
+    "set:env": "set app_password=test && set PORT=5000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +17,7 @@
     "helmet": "^6.1.5",
     "joi": "^17.9.2",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "pug": "^3.0.2"
   }
 }
