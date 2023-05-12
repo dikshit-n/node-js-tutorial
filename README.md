@@ -16,3 +16,5 @@ Node js Tutorial
  - [express-js](https://github.com/dikshit-n/node-js-tutorial/tree/master/express-js)
   - [middleware](https://github.com/dikshit-n/node-js-tutorial/blob/master/express-js/docs/middleware.md)
   - [Templating Engines](https://github.com/dikshit-n/node-js-tutorial/blob/master/express-js/docs/templating-engines.js)
+ - [MongoDB](https://github.com/dikshit-n/node-js-tutorial/blob/master/mongoDB/index.js)
+  - [Exercises](https://github.com/dikshit-n/node-js-tutorial/blob/master/exercises/mongodb/index.js) 
