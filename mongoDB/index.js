@@ -40,8 +40,10 @@ async function getCourse() {
         .or([ { name: { $eq: 'Test Author 2' } }, { isPublished: true } ])
         .and([])
         .limit(10)
-        .sort({ name: -1 })
+        .sort({ name: -1, tags: 1 })
+        // .sort("-name tags") // alternative for above sort
         .select({ name: 1, tags: 1 }); // select the properties that needs to be returned
+        // .select("name tags"); // alternative for select
     console.log(courses);
 }
 
