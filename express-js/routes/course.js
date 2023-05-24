@@ -18,7 +18,6 @@ course.get('/:id', (req, res) => {
     return res.send(course);
 });
 
-
 course.post('/', async(req, res) => {
 
     // validate whether it has the right details

@@ -3,7 +3,7 @@ const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const { logger, auth } = require('./middleware');
-const router = require('./routes')
+const router = require('./routes');
 const app = express();
 
 console.log(`Application Name: ${config.get('name')}`);
