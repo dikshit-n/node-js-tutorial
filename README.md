@@ -18,3 +18,5 @@ Node js Tutorial
    - [Templating Engines](https://github.com/dikshit-n/node-js-tutorial/blob/master/express-js/docs/templating-engines.js)
  - [MongoDB](https://github.com/dikshit-n/node-js-tutorial/blob/master/mongoDB/index.js)
    - [Exercises](https://github.com/dikshit-n/node-js-tutorial/blob/master/exercises/mongodb/index.js) 
+ - [Validation](https://github.com/dikshit-n/node-js-tutorial/tree/master/validation)
+   - [Joi]([https://github.com/dikshit-n/node-js-tutorial/blob/master/express-js/routes/course.js](https://github.com/dikshit-n/node-js-tutorial/blob/e268cdc93013e17ea803a0b4b1da6e65d46f14eb/express-js/routes/course.js#L76))
