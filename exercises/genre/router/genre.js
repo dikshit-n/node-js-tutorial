@@ -1,5 +1,7 @@
 const express = require('express');
 const { Genre } = require('../model');
+const { genre: genreValidation } = require('../validation');
+const { processValidationError } = require('../utils');
 const mongoose = require('../mongoose');
 const genre = express.Router();
 
@@ -9,6 +11,8 @@ genre.get('/', async(req, res) => {
 });
 
 genre.post('/', async(req, res) => {
+    const { error } = await genreValidation.validateAddGenre(req.body);
+    if(error) return res.status(400).send(processValidationError(error));
     const genre = new Genre({
         name: req.body.name
     });
@@ -29,6 +33,8 @@ genre.post('/', async(req, res) => {
 
 // update first
 genre.patch('/:id', async(req, res) => {
+    const { error } = await genreValidation.validateAddGenre(req.body);
+    if(error) return res.status(400).send(processValidationError(error));
     const genre = await Genre.findOneAndUpdate(new mongoose.Types.ObjectId(req.params.id), { name: req.body.name }, { new: true });
     if(!genre) return res.status(404).send(`Genre with ${req.params.id} is not found`);
     return res.send(genre);
