@@ -4,30 +4,14 @@ async function validateAddGenre(body) {
     const validationSchema = Joi.object().keys({
         name: Joi.string().min(3).required()
     })
-    return new Promise(async(resolve, reject) => {
-        try {
-            const value = validationSchema.validate(body);
-            resolve(value);
-        } catch(err) {
-            console.log(err);
-            reject({ error: err });
-        }
-    });
+    return await validate(body, validationSchema);
 }
 
 async function validateEditGenre(body) {
     const validationSchema = Joi.object().keys({
         name: Joi.string().min(3).required()
     })
-    return new Promise(async(resolve, reject) => {
-        try {
-            const value = validationSchema.validate(body);
-            resolve(value);
-        } catch(err) {
-            console.log(err);
-            reject({ error: err });
-        }
-    });
+    return await validate(body, validationSchema);
 }
 
 module.exports = {
