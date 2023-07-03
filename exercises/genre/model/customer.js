@@ -1,6 +1,6 @@
 const mongoose = require("../mongoose");
 
-const Customer = mongoose.model('Customer', new mongoose.Schema({
+const customerSchema = new mongoose.Schema({
     isGold: {
         type: Boolean,
         required: false,
@@ -18,6 +18,11 @@ const Customer = mongoose.model('Customer', new mongoose.Schema({
         minLength: 5,
         maxLength: 10
     }
-}));
+});
 
-module.exports = Customer
+const Customer = mongoose.model('Customer', customerSchema);
+
+module.exports = {
+    customerSchema,
+    Customer
+};
