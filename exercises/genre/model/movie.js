@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('../mongoose');
 const { genreSchema } = require('./genre');
 
 const movieSchema = new mongoose.Schema({
