@@ -1,5 +1,4 @@
-const Joi = require('joi');
-const { validate } = require('../utils');
+const { validate, Joi } = require('../utils');
 
 const addCustomerValidationSchema = Joi.object().keys({
     isGold: Joi.boolean(),

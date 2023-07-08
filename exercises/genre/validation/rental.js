@@ -1,9 +1,8 @@
-const Joi = require('joi');
-const { validate } = require('../utils');
+const { validate, Joi } = require('../utils');
 
 const addRentalValidationSchema = Joi.object().keys({
-    customerId: Joi.string().required(),
-    movieId: Joi.string().required(),
+    customerId: Joi.objectId().required(),
+    movieId: Joi.objectId().required(),
 });
 
 const editRentalValidationSchema = Joi.object().keys({

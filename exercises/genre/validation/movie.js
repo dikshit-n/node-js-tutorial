@@ -1,17 +1,15 @@
-const Joi = require('joi');
-const { addGenreValidationSchema } = require('./genre');
-const { validate } = require('../utils');
+const { validate, Joi } = require('../utils');
 
 const addMovieValidationSchema = Joi.object().keys({
     title: Joi.string().required().min(1).max(50),
-    genreId: Joi.string().required(),
+    genreId: Joi.objectId().required(),
     numberInStock: Joi.number().required().min(0).max(200),
     dailyRentalRate: Joi.number().required().min(0).max(200)
 });
 
 const editMovieValidationSchema = Joi.object().keys({
     title: Joi.string().required().min(1).max(50),
-    genreId: Joi.string().required(),
+    genreId: Joi.objectId().required(),
     numberInStock: Joi.number().required().min(0).max(200),
     dailyRentalRate: Joi.number().required().min(0).max(200)
 });

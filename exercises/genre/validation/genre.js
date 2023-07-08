@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const { Joi } = require('../utils');
 
 const addGenreValidationSchema = Joi.object().keys({
     name: Joi.string().min(3).required()

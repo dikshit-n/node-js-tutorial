@@ -1,3 +1,6 @@
+const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
+
 function processValidationError(error) {
     return error.details.map(el => el.message);
 };
@@ -15,5 +18,6 @@ function validate(body, validationSchema) {
 
 module.exports = {
     processValidationError,
-    validate
+    validate,
+    Joi
 };
